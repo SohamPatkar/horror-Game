@@ -2334,7 +2334,7 @@ PrefabInstance:
       objectReference: {fileID: 203687011}
     - target: {fileID: 8410985324553428649, guid: d2470b45bfcea9e4780d1866d7cd0f8c, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8410985324693255829, guid: d2470b45bfcea9e4780d1866d7cd0f8c, type: 3}
       propertyPath: soundService
@@ -2350,11 +2350,11 @@ PrefabInstance:
       objectReference: {fileID: 203687011}
     - target: {fileID: 8410985325004545555, guid: d2470b45bfcea9e4780d1866d7cd0f8c, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8410985325005616051, guid: d2470b45bfcea9e4780d1866d7cd0f8c, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
