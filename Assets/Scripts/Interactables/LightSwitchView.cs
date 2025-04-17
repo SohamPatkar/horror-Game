@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,15 +7,11 @@ public partial class LightSwitchView : MonoBehaviour, IInteractable
     [SerializeField] private List<Light> lightsources = new List<Light>();
     private SwitchState currentState;
 
-    public delegate void LightSwitchToggle();
-    public static LightSwitchToggle ToggleSwitch;
+    public static event Action ToggleSwitch;
 
     private void OnEnable() => ToggleSwitch = OnLightsToggled;
 
-    private void OnDisable()
-    {
-        ToggleSwitch -= OnLightsToggled;
-    }
+    private void OnDisable() => ToggleSwitch -= OnLightsToggled;
 
     private void Start()
     {
@@ -23,7 +20,7 @@ public partial class LightSwitchView : MonoBehaviour, IInteractable
     public void Interact()
     {
         GameService.Instance.GetInstructionView().HideInstruction();
-        ToggleSwitch.Invoke();
+        ToggleSwitch?.Invoke();
     }
     private void ToggleLights()
     {

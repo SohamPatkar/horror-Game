@@ -89,6 +89,7 @@ public class PlayerController
         else
             PlayerState = PlayerState.InDark;
     }
+
     ~PlayerController()
     {
         EventService.Instance.LightsOffByGhostEvent.RemoveListener(OnLightsOffByGhost);
