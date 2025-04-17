@@ -7,14 +7,11 @@ public partial class LightSwitchView : MonoBehaviour, IInteractable
     private SwitchState currentState;
 
     public delegate void LightSwitchToggle();
-    public static LightSwitchToggle ToggleSwitch;
+    public static event LightSwitchToggle ToggleSwitch;
 
     private void OnEnable() => ToggleSwitch = OnLightsToggled;
 
-    private void OnDisable()
-    {
-        ToggleSwitch -= OnLightsToggled;
-    }
+    private void OnDisable() => ToggleSwitch -= OnLightsToggled;
 
     private void Start()
     {
@@ -23,7 +20,7 @@ public partial class LightSwitchView : MonoBehaviour, IInteractable
     public void Interact()
     {
         GameService.Instance.GetInstructionView().HideInstruction();
-        ToggleSwitch.Invoke();
+        ToggleSwitch?.Invoke();
     }
     private void ToggleLights()
     {
