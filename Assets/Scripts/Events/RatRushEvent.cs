@@ -6,7 +6,7 @@ public class RatRushEvent : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private SoundType soundToPlay;
 
-    private float speed = 7.5f;
+    private float speed = 2.5f;
     private bool rushActive = false;
     private bool reachedTarget = false;
 
