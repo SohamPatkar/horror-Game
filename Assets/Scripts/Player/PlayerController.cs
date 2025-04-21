@@ -62,7 +62,10 @@ public class PlayerController
         EventService.Instance.PlayerDeathEvent.InvokeEvent();
     }
 
-    private void OnLightsOffByGhost() => PlayerState = PlayerState.InDark;
+    private void OnLightsOffByGhost()
+    {
+        PlayerState = PlayerState.InDark;
+    }
 
     private void GetInput()
     {

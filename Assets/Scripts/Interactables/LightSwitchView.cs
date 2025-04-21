@@ -7,9 +7,16 @@ public partial class LightSwitchView : MonoBehaviour, IInteractable
     [SerializeField] private List<Light> lightsources = new List<Light>();
     private SwitchState currentState;
 
-    private void OnEnable() => EventService.Instance.LightSwitchToggleEvent.AddListener(OnLightsToggled);
-
-    private void OnDisable() => EventService.Instance.LightSwitchToggleEvent.RemoveListener(OnLightsToggled);
+    private void OnEnable()
+    {
+        EventService.Instance.LightSwitchToggleEvent.AddListener(OnLightsToggled);
+        EventService.Instance.LightsOffByGhostEvent.AddListener(OnLightsOffByGhostEvent);
+    }
+    private void OnDisable()
+    {
+        EventService.Instance.LightSwitchToggleEvent.RemoveListener(OnLightsToggled);
+        EventService.Instance.LightsOffByGhostEvent.RemoveListener(OnLightsOffByGhostEvent);
+    }
 
     private void Start()
     {
@@ -60,6 +67,7 @@ public partial class LightSwitchView : MonoBehaviour, IInteractable
         GameService.Instance.GetSoundView().PlaySoundEffects(SoundType.SwitchSound);
         SetLights(false);
     }
+
     private void OnLightsToggled()
     {
         ToggleLights();
