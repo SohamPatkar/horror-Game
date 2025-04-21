@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PotionView : MonoBehaviour, IInteractable
 {
-    private int potionEffect = 20;
+    private int potionEffect = 10;
     public void Interact()
     {
         GameService.Instance.GetInstructionView().HideInstruction();
